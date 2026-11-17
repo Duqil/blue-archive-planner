@@ -662,6 +662,9 @@ function bindLogForm() {
       flash("Type your gem count first.");
       return;
     }
+    const earlier = state.gemLog.find((entry) => entry.date === date);
+    if (earlier && earlier.gems !== count &&
+        !window.confirm(`You already logged ${gems(earlier.gems)} gems for ${displayDate(date)}. Replace it with ${gems(count)}?`)) return;
     logGems(date, count);
     el("logGems").value = "";
     el("logDate").value = "";
