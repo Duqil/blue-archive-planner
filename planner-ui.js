@@ -634,8 +634,26 @@ function bindSettings() {
   });
 }
 
+/**
+ * Puts today in the log form's date box. A tab left open overnight (common on
+ * a phone) would otherwise keep the day the page loaded, and a count logged
+ * there lands on that old day. A date you picked yourself is kept.
+ */
+let filledLogDate = "";
+function fillLogDate() {
+  const date = el("logDate");
+  if (date.value && date.value !== filledLogDate) return;
+  date.value = filledLogDate = formatDate(today());
+}
+
 function bindLogForm() {
-  el("logDate").value = formatDate(today());
+  fillLogDate();
+  // Coming back to the tab: catch up the date box and everything counted from today.
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState !== "visible") return;
+    fillLogDate();
+    render();
+  });
   el("logForm").addEventListener("submit", (event) => {
     event.preventDefault();
     const count = numberOrNull(el("logGems").value);
@@ -644,10 +662,14 @@ function bindLogForm() {
       flash("Type your gem count first.");
       return;
     }
+    const earlier = state.gemLog.find((entry) => entry.date === date);
+    if (earlier && earlier.gems !== count &&
+        !window.confirm(`You already logged ${gems(earlier.gems)} gems for ${displayDate(date)}. Replace it with ${gems(count)}?`)) return;
     logGems(date, count);
     el("logGems").value = "";
-    el("logDate").value = formatDate(today());
-    commit(`Logged ${gems(count)} gems.`);
+    el("logDate").value = "";
+    fillLogDate();
+    commit(`Logged ${gems(count)} gems${date === formatDate(today()) ? "" : ` for ${displayDate(date)}`}.`);
   });
 }
 
