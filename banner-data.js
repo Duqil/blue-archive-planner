@@ -15,27 +15,9 @@
  *   banners     earliest first. tag marks a limited unit ("Limited" or "Fes").
  */
 const BANNER_DATA = {
-  "updated": "2026-11-12",
+  "updated": "2026-11-18",
   "jpLagDays": 104,
   "banners": [
-    {
-      "start": "2026-11-10",
-      "end": "2026-11-17",
-      "status": "predicted",
-      "students": [
-        {
-          "id": 10146,
-          "name": "Makoto (Swimsuit)",
-          "tag": "Limited"
-        },
-        {
-          "id": 10147,
-          "name": "Satsuki (Swimsuit)",
-          "tag": "Limited"
-        }
-      ],
-      "note": "100 free pulls."
-    },
     {
       "start": "2026-11-17",
       "end": "2026-11-24",
@@ -228,6 +210,25 @@ const BANNER_DATA = {
         {
           "id": 20050,
           "name": "Ritsu"
+        }
+      ]
+    },
+    {
+      "start": "2027-03-02",
+      "end": "2027-03-09",
+      "status": "predicted",
+      "students": [
+        {
+          "id": 20039,
+          "name": "Kisaki"
+        },
+        {
+          "id": 20027,
+          "name": "Shiroko (Swimsuit)"
+        },
+        {
+          "id": 10104,
+          "name": "Reijo"
         }
       ]
     }
