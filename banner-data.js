@@ -15,36 +15,9 @@
  *   banners     earliest first. tag marks a limited unit ("Limited" or "Fes").
  */
 const BANNER_DATA = {
-  "updated": "2026-11-18",
+  "updated": "2026-11-25",
   "jpLagDays": 104,
   "banners": [
-    {
-      "start": "2026-11-17",
-      "end": "2026-11-24",
-      "status": "predicted",
-      "students": [
-        {
-          "id": 10148,
-          "name": "Iroha (Swimsuit)",
-          "tag": "Fes"
-        },
-        {
-          "id": 20060,
-          "name": "Ibuki (Swimsuit)",
-          "tag": "Fes"
-        },
-        {
-          "id": 20041,
-          "name": "Rio",
-          "tag": "Fes"
-        },
-        {
-          "id": 10111,
-          "name": "Neru (School)",
-          "tag": "Fes"
-        }
-      ]
-    },
     {
       "start": "2026-11-24",
       "end": "2026-12-08",
@@ -229,6 +202,21 @@ const BANNER_DATA = {
         {
           "id": 10104,
           "name": "Reijo"
+        }
+      ]
+    },
+    {
+      "start": "2027-03-09",
+      "end": "2027-03-23",
+      "status": "predicted",
+      "students": [
+        {
+          "id": 10154,
+          "name": "Manami"
+        },
+        {
+          "id": 20064,
+          "name": "Urara"
         }
       ]
     }
